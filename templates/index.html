@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Document Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>AI Document Classifier</h1>
+    <p style="text-align:center;margin-bottom:20px;color:gray;">
+Classify text into Sports, Technology, Business, or Entertainment
+</p>
+
+    <form method="POST"  enctype="multipart/form-data">
+        <textarea name="text" placeholder="Paste or type your document here...." ></textarea>
+        <br><br>
+
+<input type="file" name="document">
+
+        <button type="submit">Classify</button>
+    </form>
+
+    {% if prediction %}
+<div class="result">
+    <h2>{{ prediction }}</h2>
+    <p>Confidence: {{ confidence }}%</p>
+</div>
+
+
+{% endif %}
+</div>
+
+</body>
+</html>
